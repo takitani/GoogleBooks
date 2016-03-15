@@ -30,7 +30,7 @@ module GoogleBooks
       self.parameters = { 'q' => query }
       options[:page] ||= 1
       options[:count] ||= 5
-      http_proxy get_proxy_values(options) if options[:proxy_host]
+      http_proxy if options[:proxy_host] ? (options[:proxy_host], options.fetch(:proxy_port, '80')) : nil?
       parameters['filter'] = options[:filter] if options[:filter]
       parameters['startIndex'] = options[:count] * (options[:page] - 1)
       parameters['maxResults'] = options[:count]
