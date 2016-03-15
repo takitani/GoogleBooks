@@ -32,7 +32,7 @@ module GoogleBooks
       self.parameters = { 'q' => query }
       options[:page] ||= 1
       options[:count] ||= 5
-      http_proxy '206.144.85.6', 9999, 'directdigital', 'VRbfyDrZ'
+      http_proxy get_proxy_values(options) unless get_proxy_values(options).nil?
       parameters['filter'] = options[:filter] if options[:filter]
       parameters['startIndex'] = options[:count] * (options[:page] - 1)
       parameters['maxResults'] = options[:count]
@@ -44,6 +44,16 @@ module GoogleBooks
     end
 
     private
+
+    #Return the proxy.
+    def self.get_proxy_values(options = {})
+      unless options[:proxy_host].nil
+        if options[:proxy_port]
+          "#{options[:proxy_host]}, #{options[:proxy_port}"
+        else
+          "#{options[:proxy_host]}"
+        end
+    end
 
     def query
       parameters.
