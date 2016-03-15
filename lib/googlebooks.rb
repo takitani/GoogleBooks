@@ -46,7 +46,7 @@ module GoogleBooks
     private
 
     #Return the proxy.
-    def self.get_proxy_values(options = {})
+    def get_proxy_values(options = {})
       if options[:proxy_port].present?
         "#{options[:proxy_host]}, #{options[:proxy_port]}"
       else
