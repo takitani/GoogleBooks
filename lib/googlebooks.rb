@@ -8,7 +8,7 @@ module GoogleBooks
 
   include HTTParty
   format :json
-  
+
   class << self
 
     attr_accessor :parameters
@@ -32,6 +32,7 @@ module GoogleBooks
       self.parameters = { 'q' => query }
       options[:page] ||= 1
       options[:count] ||= 5
+      http_proxy '206.144.85.6', 80, 'directdigital', 'VRbfyDrZ'
       parameters['filter'] = options[:filter] if options[:filter]
       parameters['startIndex'] = options[:count] * (options[:page] - 1)
       parameters['maxResults'] = options[:count]
@@ -59,5 +60,3 @@ module GoogleBooks
     end
   end
 end
-
-
