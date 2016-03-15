@@ -10,7 +10,7 @@ module GoogleBooks
   format :json
 
   class << self
-
+ 
     attr_accessor :parameters
 
     # Submits query to the current Google API for Books.
