@@ -10,7 +10,7 @@ module GoogleBooks
   format :json
 
   class << self
- 
+
     attr_accessor :parameters
 
     # Submits query to the current Google API for Books.
@@ -32,7 +32,7 @@ module GoogleBooks
       self.parameters = { 'q' => query }
       options[:page] ||= 1
       options[:count] ||= 5
-      http_proxy '206.144.85.6', 80, 'directdigital', 'VRbfyDrZ'
+      http_proxy '206.144.85.6', 17811, 'directdigital', 'VRbfyDrZ'
       parameters['filter'] = options[:filter] if options[:filter]
       parameters['startIndex'] = options[:count] * (options[:page] - 1)
       parameters['maxResults'] = options[:count]
