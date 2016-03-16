@@ -1,7 +1,7 @@
 require 'book/item'
 
 module GoogleBooks
-  class Response
+  class Response < ActiveJob::Base
     include Enumerable
     include GlobalID::Identification
 
