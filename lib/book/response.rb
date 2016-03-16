@@ -3,6 +3,7 @@ require 'book/item'
 module GoogleBooks
   class Response
     include Enumerable
+    include GlobalID::Identification
 
     def initialize(response)
       @response = response
@@ -16,7 +17,7 @@ module GoogleBooks
         block.call(Item.new(item))
       end
     end
-    
+
     # Total items returnable based on query, not total items in response
     # (which is throttled by maxResults)
     def total_items
