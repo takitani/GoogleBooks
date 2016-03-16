@@ -24,5 +24,20 @@ module GoogleBooks
       @response['totalItems'].to_i
     end
 
+    @all = []
+    def self.all; @all end
+
+    def self.find(id)
+      all.detect {|item| item.id.to_s == id.to_s }
+    end
+
+    def initialize
+      self.class.all << self
+    end
+
+    def id
+      object_id
+    end
+
   end
 end
