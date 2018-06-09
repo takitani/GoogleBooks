@@ -38,6 +38,7 @@ module GoogleBooks
       parameters['key'] = options[:api_key] if options[:api_key]
       parameters['orderBy'] = 'newest' if options[:order_by].eql?('newest')
       parameters['country'] = options[:country] if options[:country]
+      parameters['langRestrict'] = options[:langRestrict] if options[:langRestrict]
 
       Response.new(get(url.to_s))
     end

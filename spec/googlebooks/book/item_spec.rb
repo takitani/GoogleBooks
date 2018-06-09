@@ -76,6 +76,14 @@ module GoogleBooks
         end
       end
 
+      context "when restrict a language" do
+
+        it "should return results from this language" do
+          example = GoogleBooks.search('intitle:1984', langRestrict: "fr").first
+          expect(example.language).to eq "fr"
+        end
+      end
+
     end
   end
 end
